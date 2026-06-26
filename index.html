@@ -227,6 +227,58 @@
 
   .center{text-align:center}
   .center .lede{margin:0 auto}
+
+  /* ===== MOBILE / RESPONSIVE POLISH ===== */
+
+  /* Tablet — tighten section rhythm */
+  @media(max-width:860px){
+    section{padding:56px 0}
+    .hero{gap:32px;padding-bottom:44px}
+    .controls-card{padding:28px}
+  }
+
+  /* Small phones (≤640 px) */
+  @media(max-width:640px){
+    section{padding:44px 0}
+    .wrap{padding:0 16px}
+
+    /* Hero */
+    .hero{padding-top:32px;padding-bottom:32px}
+    .hero p{font-size:1.05rem}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{text-align:center}
+    .hero-note{font-size:.82rem}
+
+    /* Mock quiz */
+    .mock{padding:18px}
+    .mock-q .q{font-size:1.2rem}
+
+    /* Cards */
+    .card{padding:20px}
+
+    /* Parent controls */
+    .controls-card{padding:22px 16px}
+
+    /* Pricing */
+    .price-card{padding:32px 20px}
+    .price-list{max-width:none}
+    .price-card .btn{display:block;text-align:center}
+    .price{font-size:2.8rem}
+
+    /* FAQ */
+    summary{padding:14px 16px;font-size:.96rem}
+    details .a{padding:0 16px 14px}
+
+    /* Footer */
+    footer{padding:28px 0}
+  }
+
+  /* Very small phones (≤400 px) — keep header from overflowing */
+  @media(max-width:400px){
+    .wordmark-text{display:none}
+    .wordmark .mark{width:30px;height:30px}
+    .btn-sm{padding:9px 14px;font-size:.88rem}
+  }
 </style>
 </head>
 <body>
@@ -234,7 +286,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="#top"><svg class="mark" viewBox="0 0 256 256" aria-hidden="true"><defs><linearGradient id="bolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe06b"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><g transform="translate(30 4)"><path d="M108 52 H146 A39 39 0 0 1 146 130 H96" fill="none" stroke="#4cc9f0" stroke-width="32" stroke-linecap="round"/><path d="M100 130 H152 A42 42 0 0 1 152 214 H104" fill="none" stroke="#4cc9f0" stroke-width="32" stroke-linecap="round"/><path d="M92 34 H126 L102 116 H132 L82 224 L96 134 H66 Z" fill="#0c1430" stroke="#0c1430" stroke-width="24" stroke-linejoin="round"/><path d="M92 34 H126 L102 116 H132 L82 224 L96 134 H66 Z" fill="url(#bolt)" stroke="url(#bolt)" stroke-width="8" stroke-linejoin="round"/><g transform="translate(2 8) scale(0.92)"><g fill="#ff7d9d"><rect x="14" y="44" width="62" height="26" rx="13"/><circle cx="27" cy="40" r="13"/><circle cx="43" cy="31" r="15"/><circle cx="61" cy="38" r="13"/><circle cx="45" cy="48" r="18"/></g><path d="M34 40 q8 -6 14 2" fill="none" stroke="#e8537e" stroke-width="5.5" stroke-linecap="round"/><circle cx="36" cy="56" r="4.6" fill="#0c1430"/><circle cx="37.6" cy="54.4" r="1.6" fill="#eef3ff"/><circle cx="54" cy="56" r="4.6" fill="#0c1430"/><circle cx="55.6" cy="54.4" r="1.6" fill="#eef3ff"/><path d="M38 64 Q45 70 53 64" fill="none" stroke="#0c1430" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="62" r="3.6" fill="#ffa9c0"/><circle cx="61" cy="62" r="3.6" fill="#ffa9c0"/></g><circle cx="40" cy="100" r="6" fill="#39d98a"/></g></svg>BRAIN BOOST BUDDY</a>
+    <a class="wordmark" href="#top"><svg class="mark" viewBox="0 0 256 256" aria-hidden="true"><defs><linearGradient id="bolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe06b"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><g transform="translate(30 4)"><path d="M108 52 H146 A39 39 0 0 1 146 130 H96" fill="none" stroke="#4cc9f0" stroke-width="32" stroke-linecap="round"/><path d="M100 130 H152 A42 42 0 0 1 152 214 H104" fill="none" stroke="#4cc9f0" stroke-width="32" stroke-linecap="round"/><path d="M92 34 H126 L102 116 H132 L82 224 L96 134 H66 Z" fill="#0c1430" stroke="#0c1430" stroke-width="24" stroke-linejoin="round"/><path d="M92 34 H126 L102 116 H132 L82 224 L96 134 H66 Z" fill="url(#bolt)" stroke="url(#bolt)" stroke-width="8" stroke-linejoin="round"/><g transform="translate(2 8) scale(0.92)"><g fill="#ff7d9d"><rect x="14" y="44" width="62" height="26" rx="13"/><circle cx="27" cy="40" r="13"/><circle cx="43" cy="31" r="15"/><circle cx="61" cy="38" r="13"/><circle cx="45" cy="48" r="18"/></g><path d="M34 40 q8 -6 14 2" fill="none" stroke="#e8537e" stroke-width="5.5" stroke-linecap="round"/><circle cx="36" cy="56" r="4.6" fill="#0c1430"/><circle cx="37.6" cy="54.4" r="1.6" fill="#eef3ff"/><circle cx="54" cy="56" r="4.6" fill="#0c1430"/><circle cx="55.6" cy="54.4" r="1.6" fill="#eef3ff"/><path d="M38 64 Q45 70 53 64" fill="none" stroke="#0c1430" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="62" r="3.6" fill="#ffa9c0"/><circle cx="61" cy="62" r="3.6" fill="#ffa9c0"/></g><circle cx="40" cy="100" r="6" fill="#39d98a"/></g></svg><span class="wordmark-text">BRAIN BOOST BUDDY</span></a>
     <nav class="nav-links">
       <a class="hide-sm" href="#how-it-works">How it works</a>
       <a class="hide-sm" href="#subjects">Subjects</a>
