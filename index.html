@@ -321,6 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
       </div>
       <p class="hero-note">Free 7-day trial, no card · then £2.99/mo · UK KS2, ages 9–11 · Signed &amp; notarized by Apple on macOS</p>
+      <p class="hero-note" id="dlcount" hidden style="color:var(--cyan);font-weight:700;margin-top:8px"></p>
     </div>
 
     <div class="mock" aria-hidden="true">
@@ -582,6 +583,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* live download count from GitHub Releases — shown only once it reaches 100 */
+(function(){
+  const el=document.getElementById('dlcount'); if(!el) return;
+  const KEY='bbb_dl', TTL=1800000; // cache 30 min
+  function show(n){ if(n>=100){ const r=Math.floor(n/10)*10; el.textContent='⚡ Downloaded by '+r.toLocaleString()+'+ families'; el.hidden=false; } }
+  try{ const c=JSON.parse(localStorage.getItem(KEY)||'null'); if(c&&Date.now()-c.t<TTL){ show(c.n); return; } }catch(e){}
+  fetch('https://api.github.com/repos/nugehs/brainboostbuddy-site/releases?per_page=30',{headers:{'Accept':'application/vnd.github+json'}})
+    .then(r=>r.ok?r.json():[])
+    .then(rels=>{ let n=0; (rels||[]).forEach(r=>(r.assets||[]).forEach(a=>{ if(/\.(dmg|exe)$/i.test(a.name)) n+=a.download_count||0; })); try{localStorage.setItem(KEY,JSON.stringify({n,t:Date.now()}));}catch(e){} show(n); })
+    .catch(()=>{});
 })();
 </script>
 </body>
