@@ -585,7 +585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 
-/* live download count from GitHub Releases — shown only once it reaches 100 */
+/* live download count from GitHub Releases, shown only once it reaches 100 */
 (function(){
   const el=document.getElementById('dlcount'); if(!el) return;
   const KEY='bbb_dl', TTL=1800000; // cache 30 min
