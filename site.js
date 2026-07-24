@@ -3,6 +3,7 @@
   const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector('[data-menu-button]');
   const menu = document.querySelector('[data-menu]');
+  const mobileMenuQuery = window.matchMedia('(max-width: 860px)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!reduceMotion) {
@@ -22,16 +23,29 @@
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
-  const closeMenu = () => {
+  const setMenuState = (open) => {
     if (!menuButton || !menu) return;
-    menuButton.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('open');
+    const isMobileMenu = mobileMenuQuery.matches;
+    const isOpen = isMobileMenu && open;
+
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menu.classList.toggle('open', isOpen);
+    menu.setAttribute('aria-hidden', String(isMobileMenu && !isOpen));
+    menu.inert = isMobileMenu && !isOpen;
   };
+
+  const closeMenu = () => setMenuState(false);
+
+  setMenuState(false);
+  if (typeof mobileMenuQuery.addEventListener === 'function') {
+    mobileMenuQuery.addEventListener('change', closeMenu);
+  } else {
+    mobileMenuQuery.addListener(closeMenu);
+  }
 
   menuButton?.addEventListener('click', () => {
     const open = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!open));
-    menu?.classList.toggle('open', !open);
+    setMenuState(!open);
   });
 
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
