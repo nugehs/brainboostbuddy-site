@@ -192,15 +192,6 @@ p { text-wrap: pretty; }
   gap: clamp(48px, 7vw, 88px);
 }
 
-.eyebrow {
-  margin-bottom: 18px;
-  color: var(--blue-deep);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
 .hero h1 {
   max-width: 11ch;
   margin-bottom: 24px;
@@ -378,7 +369,7 @@ p { text-wrap: pretty; }
 .subject-list article { position: relative; min-height: 285px; padding: 30px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
 .subject-list h3 { margin: 13px 0 16px; font-size: 2rem; font-weight: 700; }
 .subject-list p { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
-.subject-list .subject-count { color: var(--blue-deep); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+.subject-list .subject-count { color: var(--blue-deep); font-size: 0.78rem; font-weight: 700; }
 .subject-mark { position: absolute; right: 24px; bottom: 16px; color: #dce4e8; font-family: var(--font-display); font-size: 3.4rem; font-weight: 700; line-height: 1; }
 .track-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .track-strip span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.6); color: var(--ink-soft); font-size: 0.78rem; font-weight: 650; }
@@ -407,7 +398,6 @@ p { text-wrap: pretty; }
 .download { overflow: hidden; background: var(--navy); color: var(--light-text); }
 .download-shell { display: grid; grid-template-columns: 0.85fr 1.15fr; align-items: center; gap: clamp(54px, 8vw, 104px); }
 .download h2 { color: var(--light-text); }
-.download .eyebrow { color: #8fd3dd; }
 .download-copy > p:last-child { color: var(--light-muted); }
 .download-panel { padding: clamp(26px, 4vw, 40px); border-radius: 16px; background: #fff; color: var(--ink); box-shadow: 0 24px 60px rgba(4, 14, 30, 0.24); }
 .price-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 25px; }
