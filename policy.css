@@ -6,97 +6,97 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Baloo 2";
-  src: url("fonts/baloo-2-latin-800-normal.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-}
-
 :root {
-  --policy-paper: oklch(0.97 0.018 91);
-  --policy-paper-deep: oklch(0.925 0.03 89);
-  --policy-ink: oklch(0.235 0.055 265);
-  --policy-soft: oklch(0.37 0.045 265);
-  --policy-line: oklch(0.82 0.025 91);
-  --policy-cyan: oklch(0.55 0.14 225);
-  --policy-yellow: oklch(0.88 0.175 93);
+  --policy-paper: #f7f5f0;
+  --policy-surface: #ffffff;
+  --policy-ink: #10233f;
+  --policy-soft: #4f6073;
+  --policy-line: #d9dee2;
+  --policy-blue: #116575;
+  --policy-blue-pale: #e2eff1;
 }
 
 * { box-sizing: border-box; }
 
 body {
+  margin: 0;
   background: var(--policy-paper);
   color: var(--policy-ink);
-  font-family: ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, sans-serif;
-  line-height: 1.68;
-}
-
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(oklch(0.45 0.025 85 / 0.11) 0.7px, transparent 0.7px);
-  background-size: 6px 6px;
-  content: "";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
 }
 
 header {
+  position: sticky;
+  top: 0;
   z-index: 10;
-  margin-bottom: 68px;
-  border-bottom: 1px solid var(--policy-line);
-  background: oklch(0.97 0.018 91 / 0.9);
-  backdrop-filter: blur(16px);
+  margin-bottom: 64px;
+  border-bottom: 1px solid rgba(217, 222, 226, 0.8);
+  background: rgba(247, 245, 240, 0.94);
+  backdrop-filter: blur(14px);
 }
 
-.nav { min-height: 72px; padding: 0 24px; }
+.nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-.wordmark { color: var(--policy-ink); letter-spacing: -0.015em; text-transform: none; }
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--policy-ink);
+  font-family: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
 .wordmark img { width: 34px; height: 34px; }
-.nav > a:last-child { color: var(--policy-soft); font-weight: 750; text-decoration: none; }
+.nav > a:last-child { color: var(--policy-soft); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
 
-.wrap { max-width: 790px; padding: 0 28px 100px; }
-
-h1 {
-  margin-bottom: 6px;
-  color: var(--policy-ink);
-  font-size: clamp(2.7rem, 7vw, 4.8rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 28px 100px;
 }
 
-.updated { margin-bottom: 48px; color: var(--policy-soft); }
-
-h2 {
-  margin: 42px 0 12px;
-  color: var(--policy-ink);
-  font-size: 1.45rem;
-  line-height: 1.15;
-}
-
-p, li { color: var(--policy-soft); }
+h1, h2 { color: var(--policy-ink); font-family: "Baloo 2", "Trebuchet MS", system-ui, sans-serif; }
+h1 { margin: 0 0 8px; font-size: clamp(2.8rem, 7vw, 4.4rem); line-height: 1.05; letter-spacing: -0.04em; }
+.updated { margin: 0 0 44px; color: var(--policy-soft); font-size: 0.9rem; }
+h2 { margin: 42px 0 12px; font-size: 1.4rem; line-height: 1.2; }
+p, li { color: var(--policy-soft); font-size: 1rem; }
+p { margin: 0 0 0.9rem; }
+li { margin: 0 0 0.45rem 1.2rem; }
 strong { color: var(--policy-ink); }
-a { color: var(--policy-cyan); text-underline-offset: 3px; }
+a { color: var(--policy-blue); text-underline-offset: 3px; }
 
 .card {
-  margin: 0 0 46px;
-  padding: 24px 26px;
-  border: 0;
-  border-radius: 16px;
-  background: var(--policy-yellow);
+  margin: 0 0 44px;
+  padding: 23px 25px;
+  border: 1px solid #c9dfe2;
+  border-radius: 12px;
+  background: var(--policy-blue-pale);
 }
 
 .card p { margin: 0; color: var(--policy-ink); }
 
 @media (max-width: 620px) {
-  header { margin-bottom: 46px; }
-  .wordmark { font-size: 0.92rem; }
+  header { margin-bottom: 44px; }
+  .nav { min-height: 66px; padding-inline: 18px; }
+  .wordmark { font-size: 0.95rem; }
   .wordmark img { width: 30px; height: 30px; }
   .wrap { padding-inline: 20px; }
-  h1 { font-size: 3rem; }
+  h1 { font-size: 2.8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

@@ -1,23 +1,8 @@
 (function () {
-  const root = document.documentElement;
   const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector('[data-menu-button]');
   const menu = document.querySelector('[data-menu]');
   const mobileMenuQuery = window.matchMedia('(max-width: 860px)');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!reduceMotion) {
-    root.classList.add('motion-ready');
-    const reveals = [...document.querySelectorAll('[data-reveal]')];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -24px' });
-    reveals.forEach((item) => observer.observe(item));
-  }
 
   const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 8);
   updateHeader();
