@@ -38,6 +38,14 @@
     if (event.key === 'Escape') closeMenu();
   });
 
-  const platform = navigator.userAgent.includes('Windows') ? 'windows' : navigator.userAgent.includes('Mac') ? 'mac' : '';
+  const ua = navigator.userAgent;
+  const isiPadOs = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  const platform = /Windows/i.test(ua)
+    ? 'windows'
+    : /iPhone|iPad|iPod/i.test(ua) || isiPadOs
+      ? 'ios'
+      : /Mac/i.test(ua)
+        ? 'mac'
+        : '';
   if (platform) document.querySelector(`[data-platform="${platform}"]`)?.classList.add('recommended');
 })();

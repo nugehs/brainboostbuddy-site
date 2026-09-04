@@ -404,22 +404,8 @@ p { text-wrap: pretty; }
 .price-line strong { color: var(--ink); font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.25rem); line-height: 0.95; }
 .price-line span { color: var(--ink-soft); font-size: 0.9rem; }
 .download-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
-.coming-soon {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-height: 70px;
-  justify-content: center;
-  padding: 14px 16px;
-  border: 1px dashed #cad3dc;
-  border-radius: 12px;
-  background: #f7f9fb;
-  color: var(--ink);
-}
-.coming-soon span { font-weight: 750; }
-.coming-soon small { color: var(--ink-soft); font-weight: 600; }
 .download-button { min-height: 70px; display: flex; flex-direction: column; gap: 4px; }
+.download-button[data-platform="ios"] { grid-column: 1 / -1; }
 .download-button small { font-weight: 600; opacity: 0.7; }
 .download-button.recommended { outline: 3px solid var(--blue); outline-offset: 3px; }
 .download-notes { display: flex; flex-wrap: wrap; gap: 8px 17px; margin: 23px 0 0; padding: 0; color: var(--ink-soft); font-size: 0.76rem; list-style: none; }
